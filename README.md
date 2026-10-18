@@ -6,9 +6,35 @@
 > 
 > Each entry answers two questions: what problem it solves (and who it's for), and how to make money with it.
 > 
-> Star counts verified via GitHub API on 2026-10-12. Continuously updated.
+> Star counts verified via GitHub API on 2026-10-18. Continuously updated.
 
 ## 条目
+
+### MiniMax H3 14 种电影级运镜（loopforge0）
+
+**核心提炼**
+- 解决什么问题：MiniMax H3 只有 12 个官方运镜原语，没有"Dolly Zoom"这类现成的复合镜头名，大部分拼法写出来运镜根本不生效。
+- 核心用法（3 步）：1) 看在线画廊 loopforge.cc/projects/h3-camera-shots/，每个镜头旁边就是生成它的确切 prompt（运镜和镜头短语高亮标注），clip / prompt / 角色参考板 / ComfyUI 工作流都可下载；2) 装成 agent skill（`.claude/skills/` 目录，复制到用户 skills 目录全局可用），直接让 agent 按镜头名写 prompt；3) 不用 agent 时跑 `python scripts/build_prompt.py <镜头名> --scene my-scene.json` 拼 prompt，人物 / 动物 / 物体按 subject 分槽适配。
+- 什么时候用 / 常见坑：想让 AI 短片运镜有电影感时直接套这 14 个验证过的配方；H3 渲染至少 20 步、124 帧起步（4 步 turbo 渲染会压死运镜）；子弹时间被证实做不出来（仓库里有失败报告），别再烧钱试。
+
+**适用场景**：用 MiniMax H3 做短片 / 广告 / TVC 的创作者、agent 工作流玩家。
+
+**怎么用它搞钱**：运镜教学 / AI 短片商单（电影级运镜是差异化卖点）。
+
+**来源**：[loopforge0/minimaxh3-shots-skills](https://github.com/loopforge0/minimaxh3-shots-skills) · ⭐11 · 更新于 2026-10-15 · X 推荐帖 [@egguy7](https://x.com/egguy7/status/2111677222579040486)
+
+### Higgsfield 两部 AI 电影全套提示词资产库
+
+**核心提炼**
+- 解决什么问题：长片级 AI 电影的完整提示词和资产库极少公开，这个是真金白银烧出来的实战教材。
+- 核心用法（3 步）：1) 《HELL GRIND》：95 分钟、50 万美元成本、Seedance 2.0 制作、曾在戛纳展映；2) 《Cully Hill Boys》：110 分钟、200 万美元成本、Seedance 2.5 制作、人物为真实博主肖像；3) 按片拆解长片连续性管理、人物一致性、成本结构，当实操教材逐镜看。
+- 什么时候用 / 常见坑：想做 AI 长片 / 系列短剧、研究"AI 电影到底烧多少钱、怎么管连续性"时看；资产含真实博主肖像，商用注意肖像权。
+
+**适用场景**：AI 短剧 / 长片创作者、想研究 AI 电影工业化流程的人。
+
+**怎么用它搞钱**：AI 短剧实战教学 / 拉片拆解内容 / 长片项目投融资参考。
+
+**来源**：Higgsfield 官方资产库（higgsfield.ai）· X 首发 [@xingjia520](https://x.com/xingjia520/status/2111448610525327544)
 
 ### Awesome MiniMax H3 Prompts
 
@@ -21,7 +47,7 @@
 
 **怎么用它搞钱**：新模型 prompt 教学 / 商单（差异化卖点）。
 
-**来源**：[BeatAPI/awesome-minimax-h3-prompts](https://github.com/BeatAPI/awesome-minimax-h3-prompts) · ⭐194 · 更新于 2026-10-07
+**来源**：[BeatAPI/awesome-minimax-h3-prompts](https://github.com/BeatAPI/awesome-minimax-h3-prompts) · ⭐196 · 更新于 2026-10-16
 
 ### BFL Skills（FLUX 官方）
 
@@ -34,7 +60,7 @@
 
 **怎么用它搞钱**：FLUX 视频商单 / agent 工作流教学。
 
-**来源**：[black-forest-labs/skills](https://github.com/black-forest-labs/skills) · ⭐128 · 更新于 2026-09-09
+**来源**：[black-forest-labs/skills](https://github.com/black-forest-labs/skills) · ⭐130 · 更新于 2026-10-16
 
 ### Awesome Seedance 2.0（ZeroLu）
 
@@ -47,7 +73,7 @@
 
 **怎么用它搞钱**：提示词教学 / 商单。
 
-**来源**：[ZeroLu/awesome-seedance](https://github.com/ZeroLu/awesome-seedance) · ⭐2680 · 更新于 2026-10-12
+**来源**：[ZeroLu/awesome-seedance](https://github.com/ZeroLu/awesome-seedance) · ⭐2731 · 更新于 2026-10-18
 
 ### Awesome Seedance 2.0 Video Prompts（YouMind）
 
@@ -60,7 +86,7 @@
 
 **怎么用它搞钱**：提示词教学 / 商单。
 
-**来源**：[YouMind-OpenLab/awesome-seedance-2-prompts](https://github.com/YouMind-OpenLab/awesome-seedance-2-prompts) · ⭐2116 · 更新于 2026-10-12
+**来源**：[YouMind-OpenLab/awesome-seedance-2-prompts](https://github.com/YouMind-OpenLab/awesome-seedance-2-prompts) · ⭐2149 · 更新于 2026-10-18
 
 ### Awesome Seedance（LearnPrompt）
 
@@ -73,13 +99,13 @@
 
 **怎么用它搞钱**：提示词教学 / 商单。
 
-**来源**：[LearnPrompt/awesome-seedance](https://github.com/LearnPrompt/awesome-seedance) · ⭐1980 · 更新于 2026-10-12
+**来源**：[LearnPrompt/awesome-seedance](https://github.com/LearnPrompt/awesome-seedance) · ⭐2122 · 更新于 2026-10-18
 
 ## 收录标准
 
 - 来源：X 博主实战分享（原帖 / 评论区 / 引用链）及 GitHub 高星项目
 - 每条格式：核心提炼（解决什么问题 / 核心用法 / 什么时候用）+ 适用场景 + 一条「怎么用它搞钱」
-- Star 数为 2026-10-12 经 GitHub API 核验；持续收录中
+- Star 数为 2026-10-18 经 GitHub API 核验；持续收录中
 - 去重：同一项目只收录一次，不堆 raw 链接
 
 ## 相关分类
@@ -104,5 +130,6 @@
 
 ## 更新日志
 
+- 2026-10-18：午档搜集新增 2 条（MiniMax H3 14 种电影级运镜 prompt 合集 loopforge0/minimaxh3-shots-skills、Higgsfield 两部 AI 电影《HELL GRIND》/《Cully Hill Boys》全套提示词资产库），老 5 条 star 全量复核更新，共 7 个项目
 - 2026-10-12：条目升级为小节格式（核心提炼 / 适用场景 / 搞钱 / 来源），新增 MiniMax H3、FLUX 官方 skills 两个新品类项目，共 5 个项目
 - 2026-10-11：首版，3 个项目，持续收录中
