@@ -114,6 +114,19 @@
 
 **来源**：[LearnPrompt/awesome-seedance](https://github.com/LearnPrompt/awesome-seedance) · ⭐2122 · 更新于 2026-10-18
 
+### Motion Prompt 动效/运镜/UI 提示词查询库（showheyohtaki）
+
+**核心提炼**
+- 解决什么问题：想让 AI 做某个动效、运镜或 UI 组件，却不知道它叫什么、怎么写 prompt——这个库把名称、动态示例和提问句式整理成 120 条可查条目。
+- 核心用法（3 步）：1) 按 5 组翻查（运动图形 motion / 运镜 camera / UI 组件 ui / 落地页效果 lp / 照片质感与布光 photo，每组 24 条）；2) 每条带动态示例和提问句式，先看动效长什么样、再照着句式向 AI 提问；3) 复制条目描述贴进视频生成工具，精准指定动效与运镜。
+- 什么时候用 / 常见坑：做 AI 动画 / 短视频需要精准动效描述时查；运镜类条目可直接写进文生视频 prompt 的 camera 段。
+
+**适用场景**：AI 动画 / 短视频创作者、动效设计师；提示词教学者可当词典。
+
+**怎么用它搞钱**：动效提示词教学 / AI 动画商单（精准动效是成片质感的差异化）。
+
+**来源**：[showheyohtaki/motion-prompt](https://github.com/showheyohtaki/motion-prompt) · ⭐411 · 更新于 2026-10-19（经 GitHub API 核验）· X 推荐帖 [@QingQ77](https://x.com/QingQ77/status/2111970331606847623)
+
 ## 收录标准
 
 - 来源：X 博主实战分享（原帖 / 评论区 / 引用链）及 GitHub 高星项目
@@ -143,6 +156,7 @@
 
 ## 更新日志
 
+- 2026-10-19：早档搜集新增 1 条（Motion Prompt 动效/运镜/UI 提示词查询库 showheyohtaki/motion-prompt，120 条目，经 @QingQ77 帖推荐，⭐411 今日更新），GitHub 关键词无新命中，共 9 个项目
 - 2026-10-18：早档搜集新增 1 条（Veo3/即梦/可灵/海螺/豆包视频提示词精选 songguoxs/awesome-video-prompts，50 案例），X 侧 0 新增，共 8 个项目
 - 2026-10-18：午档搜集新增 2 条（MiniMax H3 14 种电影级运镜 prompt 合集 loopforge0/minimaxh3-shots-skills、Higgsfield 两部 AI 电影《HELL GRIND》/《Cully Hill Boys》全套提示词资产库），老 5 条 star 全量复核更新，共 7 个项目
 - 2026-10-12：条目升级为小节格式（核心提炼 / 适用场景 / 搞钱 / 来源），新增 MiniMax H3、FLUX 官方 skills 两个新品类项目，共 5 个项目
