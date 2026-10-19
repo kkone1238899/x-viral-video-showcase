@@ -127,11 +127,24 @@
 
 **来源**：[showheyohtaki/motion-prompt](https://github.com/showheyohtaki/motion-prompt) · ⭐411 · 更新于 2026-10-19（经 GitHub API 核验）· X 推荐帖 [@QingQ77](https://x.com/QingQ77/status/2111970331606847623)
 
+### Claude Opus 5.5 代码生成视频四库导航（@czzzzzzJ_ 推荐）
+
+**核心提炼**
+- 解决什么问题：Claude Opus 5.5 能纯靠写代码（HTML / Canvas / SVG / Three.js）生成视频、不用任何视频模型，但网上案例散、写法散——这条导航一次给齐从"跟做"到"拆工程"的四个开源仓。
+- 核心用法（4 库分工）：1) joeseesun/opus-video-prompts（约 54 个可复制案例，中文友好）——新手先从这里啃，复制提示词直接跑；2) lemomo-ai/lemo-opuscar（51 种影片风格提示词 + 纯代码样片 + 导演与技术指南）——填自己的故事，让 AI 按风格导短片；3) yihui-dev/awesome-opus5-5-videos（病毒视频成片合集，附创作者原始 Prompt，原片与复刻对照看）——学写法；4) JohnHeibel/PDoomVideo（完整 MV 工程：源码 / 分镜 / 渲染）——想研究复杂动画时拆它的工程。
+- 什么时候用 / 常见坑：想零视频模型成本做动画 / 短片时走这条线；PDoomVideo 与 opus-video-prompts 暂无 LICENSE 声明，商用前先确认授权。
+
+**适用场景**：想学"代码生成视频"新范式的创作者、Claude Code / agent 工作流玩家。
+
+**怎么用它搞钱**：代码生成视频教学 / AI 动画商单（零模型成本是报价优势）。
+
+**来源**：X 推荐帖 [@czzzzzzJ_](https://x.com/czzzzzzJ_/status/2112085934267346976)（麦当mdldm，蓝V，2026-10-19 发布）· 仓库 [lemomo-ai/lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar) ⭐3544（MIT，2026-10-19 更新） / [yihui-dev/awesome-opus5-5-videos](https://github.com/yihui-dev/awesome-opus5-5-videos) ⭐6464（MIT） / [JohnHeibel/PDoomVideo](https://github.com/JohnHeibel/PDoomVideo) ⭐2223 / [joeseesun/opus-video-prompts](https://github.com/joeseesun/opus-video-prompts) ⭐426（star 均 2026-10-19 经 GitHub API 核验）
+
 ## 收录标准
 
 - 来源：X 博主实战分享（原帖 / 评论区 / 引用链）及 GitHub 高星项目
 - 每条格式：核心提炼（解决什么问题 / 核心用法 / 什么时候用）+ 适用场景 + 一条「怎么用它搞钱」
-- Star 数为 2026-10-18 经 GitHub API 核验；持续收录中
+- Star 数为各条目入库当日经 GitHub API 核验（见各条来源行）；持续收录中
 - 去重：同一项目只收录一次，不堆 raw 链接
 
 ## 相关分类
@@ -156,6 +169,7 @@
 
 ## 更新日志
 
+- 2026-10-19：晚档搜集新增 1 条（Claude Opus 5.5 代码生成视频四库导航，经 @czzzzzzJ_ 帖推荐，4 仓库 star 均当日 API 核验），共 10 个项目
 - 2026-10-19：早档搜集新增 1 条（Motion Prompt 动效/运镜/UI 提示词查询库 showheyohtaki/motion-prompt，120 条目，经 @QingQ77 帖推荐，⭐411 今日更新），GitHub 关键词无新命中，共 9 个项目
 - 2026-10-18：早档搜集新增 1 条（Veo3/即梦/可灵/海螺/豆包视频提示词精选 songguoxs/awesome-video-prompts，50 案例），X 侧 0 新增，共 8 个项目
 - 2026-10-18：午档搜集新增 2 条（MiniMax H3 14 种电影级运镜 prompt 合集 loopforge0/minimaxh3-shots-skills、Higgsfield 两部 AI 电影《HELL GRIND》/《Cully Hill Boys》全套提示词资产库），老 5 条 star 全量复核更新，共 7 个项目
