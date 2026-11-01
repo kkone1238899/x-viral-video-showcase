@@ -140,6 +140,19 @@
 
 **来源**：X 推荐帖 [@czzzzzzJ_](https://x.com/czzzzzzJ_/status/2112085934267346976)（麦当mdldm，蓝V，2026-10-19 发布）· 仓库 [lemomo-ai/lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar) ⭐3544（MIT，2026-10-19 更新） / [yihui-dev/awesome-opus5-5-videos](https://github.com/yihui-dev/awesome-opus5-5-videos) ⭐6464（MIT） / [JohnHeibel/PDoomVideo](https://github.com/JohnHeibel/PDoomVideo) ⭐2223 / [joeseesun/opus-video-prompts](https://github.com/joeseesun/opus-video-prompts) ⭐426（star 均 2026-10-19 经 GitHub API 核验）
 
+### 电影级视频 Skill 十库导航（@awe0_io 推荐）
+
+**核心提炼**
+- 解决什么问题：想直接装上就能出电影级视频的 Skill，但网上视频 Skill 散、质量参差——这条导航按实用度排好了 10 个开源仓，从镜头配方到多模型统一接口一次给齐。
+- 核心用法（帖内排序，10 库分工）：1) Vincentwei1021/video-shotcraft（⭐15491，Apache-2.0）——Claude / Codex 一句话出电影级产品片，150+ 镜头配方 + Remotion 模板；2) LearnPrompt/awesome-seedance（⭐2371，MIT）——840+ 实测案例 + 80 个可安装 Skill，按场景直接写 Seedance 提示词（本库已有独立条目，此处不重复计）；3) cclank/lanshu-awesome-ai-video-kit（⭐438，MIT）——企业 AI 视频项目工具包，仓库自述 411 prompt + 7 个 Skill，自带模型选择器和跨模型翻译（帖称 600+，以仓库自述为准）；4) robonuggets/seedance-skill（⭐108，暂无 LICENSE）——丢网站截图就出液态玻璃宣传片；5) calesthio/generative-media-skills（⭐222，MIT）——150+ 技能覆盖图像 / 视频 / 音频 / 3D，整套流水线；6) Alisa0808/vibe-creating-skill（⭐154，LICENSE 未识别）——把粗糙想法改写成模型能懂的视频提示词，中英双语；7) iart-ai/explainer-video-skills（⭐67，MIT）——一句话生成带旁白的解说视频或图表动画；8) woodfantasy/Seedance-ShotDesign-Skills（⭐131，MIT-0）——专为 Seedance 2.5 做的分镜、延长、编辑 Skill；9) adamperlis/video-skills（⭐44，MIT）——11 个可复用视频生产 Skill（演示、品牌片、UI 教程）；10) inference-sh/skills（⭐793，暂无 LICENSE）——一个 Skill 调 40+ 视频模型，统一接口。
+- 什么时候用 / 常见坑：不知道从哪个 Skill 装起、想按任务挑现成 Skill 时照单装；seedance-skill 与 inference-sh/skills 暂无 LICENSE 声明、vibe-creating-skill 许可未识别，商用前先确认授权；inference-sh 系 API 厂商 Skill，走其 API 按量付费；lanshu 帖称 600+ prompt 与仓库自述 411 有出入，以仓库为准。
+
+**适用场景**：想用 Claude Code / Codex 出电影级产品片、解说视频、品牌片的创作者、agent 工作流玩家。
+
+**怎么用它搞钱**：产品片 / 品牌片商单（电影级镜头配方是差异化卖点）、Skill 装机教学。
+
+**来源**：X 推荐帖 [@awe0_io](https://x.com/awe0_io/status/2113632280036180366)（2026-10-23 发布，原帖全文经 fxtwitter API 核验）· 10 仓库 star 与许可均 2026-11-01 经 GitHub API 核验
+
 ## 收录标准
 
 - 来源：X 博主实战分享（原帖 / 评论区 / 引用链）及 GitHub 高星项目
@@ -169,6 +182,7 @@
 
 ## 更新日志
 
+- 2026-11-01：早档搜集新增 1 条（电影级视频 Skill 十库导航，经 @awe0_io 帖推荐，10 仓库 star 均当日 API 核验），GitHub 关键词无新命中，共 11 个项目
 - 2026-10-19：晚档搜集新增 1 条（Claude Opus 5.5 代码生成视频四库导航，经 @czzzzzzJ_ 帖推荐，4 仓库 star 均当日 API 核验），共 10 个项目
 - 2026-10-19：早档搜集新增 1 条（Motion Prompt 动效/运镜/UI 提示词查询库 showheyohtaki/motion-prompt，120 条目，经 @QingQ77 帖推荐，⭐411 今日更新），GitHub 关键词无新命中，共 9 个项目
 - 2026-10-18：早档搜集新增 1 条（Veo3/即梦/可灵/海螺/豆包视频提示词精选 songguoxs/awesome-video-prompts，50 案例），X 侧 0 新增，共 8 个项目
