@@ -6,9 +6,178 @@
 > 
 > Each entry answers two questions: what problem it solves (and who it's for), and how to make money with it.
 > 
-> Star counts verified via GitHub API on 2026-11-14. Continuously updated.
+> Star counts verified via GitHub API on 2026-11-27. Continuously updated.
 
 ## 条目
+
+### Claude 做 What If 爆款短视频五步法（@swordBluesy）
+
+**核心提炼**
+- 解决什么问题：What If 短视频赛道，爆款的关键不是问题多大、而是问题多具体；不露脸、不剪辑、不画图，一条成本约 7 美分。
+- 核心用法（5 步）：1) 让 Claude 一次出 30 个带精确数字加精确时刻的 What If 问题并打分排序（作者示例"如果地球上每个人明天早上九点都拿到一千美元"得 26/30 分，Claude 建议改得更个人化）；2) 在 Claude 里添加 Higgsfield 自定义连接器（mcp.higgsfield.ai/mcp），一次接好，之后脚本、配音、成片都在同一个聊天里；3) 新聊天输入 Open Content Factory in Higgsfield，从 50 多种画风里选自带数字的（作者试了 Lowpoly Skyline / Night Flat / Pastel Clay 三种，各约 4.6–4.8 积分，最终选 Night Flat：有角色、大数字手机上易读）；4) 等约半小时出第一集：Claude 写脚本、Higgsfield 录配音、代码逐帧画出每一帧，不生成 AI 图片或视频片段；5) 同一聊天做第二集（输入 Make part two in the same style and with the same voice），第二集接着第一集往下讲（如"一周以后"）。
+- 什么时候用 / 常见坑：做 What If / 科普讲解 Shorts、想低成本批量起号时用；成本按 Ultra 计划约每条 7 美分，只做这类 Shorts 的话 Basic 每月 120 积分就够；变现上 Shorts 只是橱窗（作者自己频道过去 28 天长视频单次播放收入约 Shorts 的 17 倍），系列攒够集数拼成长视频才是真正赚钱处；合规两条：YouTube Studio 里标明 AI 生成、每条换一个新问题（抄别人或重复内容不给钱）；原文标明由 Higgsfield 赞助、含联盟链接。
+
+**适用场景**：想低成本批量做 What If / 科普讲解 Shorts 的创作者。
+
+**怎么用它搞钱**：Shorts 引流 + 系列拼长视频拿 YouTube 收益 / What If 频道代运营。
+
+**来源**：X 原帖 [@swordBluesy](https://x.com/swordBluesy/status/2126117751160758496)（2026-11-27 08:55 北京发布，正文经 fxtwitter API 核验）· 原文为 Saidox AI 11 月 26 日英文教程编译；"6500 万播放"为作者所引频道总量（单条最高 1500 万），引用时注明
+
+### AI 短剧投流素材批量出：一集切出 20 条（@Muss7749）
+
+**核心提炼**
+- 解决什么问题：一集拍完，投流要几十条素材（开头不同、比例不同），手工一条条剪太慢、平台按条收费——这篇把"一集成片 → 一批可投素材"拆成 3 个命令加 1 段提示词，出片和质检都在自己电脑上跑，不用显卡。
+- 核心用法（6 步）：1) 准备成片 ep01.mp4 与对白字幕 ep01.srt（字幕时间要准，下刀全靠它），装 ffmpeg / Python 3 / Pillow；2) adcut.py lines 把字幕转成带编号的台词表，提示词让 AI 写 5 条剪辑方案 CSV（列 id,mode,lines,title,cta；5 种剪法：高光前置、顺剪、跳剪、悬念截停、冲突对白；只写台词编号不写秒数；title 不超过 14 字、cta 不超过 10 字）；3) adcut.py check 体检 9 项（列数、编号越界、时长 10–30 秒、开头撞车、重复用句、悬念截停末句须为问句、title/cta 字数、广告法违禁词），有问题标原因再改；4) 先看平台规格：巨量引擎只收 9:16 与 16:9、时长 4–300 秒；TikTok 收 9:16/16:9/1:1、最低 540×960、最长 10 分钟、文件不超 500MB；Meta Reels/Stories 推 9:16、Feed 推 4:5，9:16 安全区为顶部 14%、底部 35%、左右各 6%；巨量上传接口有 is_aigc 字段、按实填；码率下限 516 kbps；5) adcut.py build 一条命令批量出片（默认 9x16,4x5,1x1,16x9 四个比例），自动加前 3 秒顶部钩子大字、剧名角标、片尾定格引导语，响度统一到 -14 LUFS、峰值 -1.5 dBTP，H.264 固定 2500 kbps、30 fps；6) adqc.py 上传前质检（编码、开头黑屏、开头静音、响度 -18 至 -10 LUFS、峰值不超 -1 dBFS、开头画面撞车），全部合格退出码为 0，可接在自动上传脚本前当门禁。
+- 什么时候用 / 常见坑：做 AI 短剧投流、每集要批量出素材时用；实测：41 秒《玉佩》12 句对白，5×4=20 个 mp4，出片 2 分 30 秒、质检 20 秒；本地 Qwen3.5-4B 与 9B 写方案实测：4B 首轮 5 条 4 条有问题、9B 首轮 2 条有问题，作者结论是"AI 出初稿 → check 抓错 → 人改 1–2 行"，比让 AI 反复返修快；码率坑是实测出来的：CRF 20 导致 20 个文件里 15 个低于 516 kbps（最低 306k），改固定 2500k CBR 后全部在 2577–2590 kbps；两个脚本与提示词全文在文末，复制保存即可。
+
+**适用场景**：做 AI 短剧投流、每集要批量出素材的团队与个人。
+
+**怎么用它搞钱**：短剧投流素材代剪 / 投流代运营（批量出素材是投流起量的前提）。
+
+**来源**：X 原帖 [@Muss7749](https://x.com/Muss7749/status/2126117648740286792)（2026-11-27 08:55 北京发布，Article 全文经 fxtwitter API 核验）
+
+### AI 视频/动画/图片 9 个开源仓库导航（@AIExplorerTim）
+
+**核心提炼**
+- 解决什么问题：AI 做的视频、动画和图片效果很猛，但不知道哪些开源项目能在自己电脑上跑——这条一次给齐 9 个。
+- 核心用法（9 库分工）：1) Comfy-Org/ComfyUI（⭐148,772，GPL-3.0）——图片、视频、音频、3D 的节点工作流；2) black-forest-labs/flux（⭐26,083，Apache-2.0）——FLUX.1，schnell 开放权重；3) Lightricks/LTX-2（⭐10,423，Apache-2.0）——文/图生视频，声音和画面一起生成，可本地跑、接 ComfyUI；4) Wan-Video/Wan2.2（⭐18,956，Apache-2.0）——文/图生视频；5) Tencent-Hunyuan/HunyuanVideo-1.5（⭐4,618）——轻量运行；6) motion-canvas/motion-canvas（⭐20,283，MIT）——TypeScript 做动效、信息图、文字动画；7) ManimCommunity/manim（⭐42,956，MIT）——Python 数学动画；8) blender/blender（⭐22,596）——3D 建模、角色动画、物理、镜头、渲染合成，Python 自动化；9) invoke-ai/InvokeAI（⭐29,167，Apache-2.0）——本地图片生成编辑，节点工作流。
+- 什么时候用 / 常见坑：想本地跑 AI 视频/动画/图片开源项目时照单装；这是基础工具导航（偏底层模型与动画框架），不是提示词合集，找现成可抄案例去 songguoxs / ZeroLu 那几条。
+
+**适用场景**：想本地跑 AI 视频/动画/图片开源项目的人、技术型创作者。
+
+**怎么用它搞钱**：本地部署接单 / 动画商单（开源本地跑是成本优势）。
+
+**来源**：X 原帖 [@AIExplorerTim](https://x.com/AIExplorerTim/status/2126113025547706679)（2026-11-27 08:37 北京发布，正文经 fxtwitter API 核验）· 9 仓库清单在作者本人串帖中，浏览器侧读取；star 均 2026-11-27 经 GitHub API 核验
+
+### MAGI-2 双向工作流：Video to Code 与 Code to Video（@KOF97AI 转发 @op7418 长文）
+
+**核心提炼**
+- 解决什么问题：视频生成模型和代码编写各干各的——高动态网页原型贵、视频动作控制靠抽卡——这篇把两者连成双向闭环。
+- 核心用法：工具链为 LibTV 的 MCP + Google Neon + MAGI-2（支持 30 秒 1080P、多图多参混合参考、20000 字超长提示词；MAGI-2 5 毛/秒，LibTV 限时特惠 5 分/秒）；玩法一 Video to Code：先在 LibTV 生成六宫格分镜模板喂 MAGI-2 出视频，Neon 读取配色与转场动势、写出一镜到底的视差滚动产品官网，电子乐 BPM 随页面滚动加速，透明底产品图反过来当网页素材复用；玩法二 Code to Video：Neon 先写代码生成 2D 横版 Boss 战动作灰盒视频（跳跃、弹反、顿帧、镜头特写、连招位置），再用 LibTV 全能参考结合设定图、精准控制生成水墨打斗视频，动作不满意改代码、不重抽卡；实测：敦煌飞天、竹林武侠、色块滑块调色逻辑、文字渲染无果冻、物理小球硬度；小问题：提示词润色偶有偏差、背景音乐与动作音效有时二选一；附 Skill：op7418/guizang-magi2-skill（⭐62，AGPL-3.0），含 MAGI-2 提示词优化方法、Antigravity 上 LibTV MCP 适配修复、双向工作流。
+- 什么时候用 / 常见坑：做高动态网页/产品官网、游戏打斗视频、想用代码控视频动作时用；文中含两处 LibTV 特惠表述（"限时特惠 5 分/秒"、"他们现在优惠挺大的"），未标"付费合作"，引用时注明；图片内小字提示词未逐字转录，照做前先看原文截图。
+
+**适用场景**：做高动态网页/产品官网、游戏打斗视频的人。
+
+**怎么用它搞钱**：高动态官网/产品演示商单（视频定视觉再写代码是效率卖点）/ MAGI-2 工作流教学。
+
+**来源**：X 原帖 [@KOF97AI](https://x.com/KOF97AI/status/2126112477582954939)（2026-11-27 08:34 北京发布，正文经 fxtwitter API 核验）· 所链 Article《谷歌 Neon 加 MAGI-2 居然这么强！解锁 AI 写代码与生视频的双向玩法（附 Skill）》作者 [@op7418](https://x.com/op7418/article/2125531062541635755)（歸藏），11 月 25 日发布，全文经 live browser 直读核验；Skill 仓库 star 2026-11-27 经 GitHub API 核验
+
+### AI 短剧 3 个 GitHub 项目导航（@bkdgiffug）
+
+**核心提炼**
+- 解决什么问题：AI 短剧风口来了不知道从哪几个项目下手；工具谁都能下载，真正拉开差距的是整条生产流水线跑没跑通。
+- 核心用法（3 库分工 + 全流程）：1) MemeCalculate/moyin-creator（⭐4,880，AGPL-3.0）——桌面端 AI 短剧工具，深度适配 Seedance 2.0，剧本、分镜到成片支持批量生成，多镜头与角色连续性；2) waooAI/waoowaoo（⭐14,988）——工业级，一键把网文小说拆成角色、场景、剧情、分镜、配音，再自动出视频，小说改编与短剧矩阵效率高；3) chatfire-AI/huobao-drama（⭐18,026）——新手友好，一句话或一个主题丢进去，剧本改写、生图、配音、字幕、视频合成一条龙；全流程：剧本 → 人物 → 分镜 → 生图 → 视频 → 配音 → 剪辑 → 发布。
+- 什么时候用 / 常见坑：从零搭 AI 短剧工作流、做小说改编短剧矩阵时照这条装；3 仓本体已收进流水线/生产管线库，本条为 X 推荐帖（附完整生产流程）。
+
+**适用场景**：从零搭 AI 短剧工作流的人、小说改编短剧矩阵团队。
+
+**怎么用它搞钱**：短剧代制接单 / 小说改编短剧矩阵（工业级批量是报价底气）。
+
+**来源**：X 原帖 [@bkdgiffug](https://x.com/bkdgiffug/status/2126027206313078905)（2026-11-27 02:56 北京发布，正文经 fxtwitter API 核验）· 3 仓库 star 均 2026-11-27 经 GitHub API 核验
+
+### ffmpeg-skill：给 Agent 装一个本地剪辑师（@ReignSwords）
+
+**核心提炼**
+- 解决什么问题：agent 剪视频不靠谱、手敲 ffmpeg 参数总要翻——这个仓库给 Claude Code / Cursor / Codex 装一个本地剪辑师，你说人话、它去调 ffmpeg 干活。
+- 核心用法：三步上手：1) 装好 FFmpeg；2) npx ffmpeg-skill setup，一行装 skill；3) npx ffmpeg-skill doctor，看 42 个工具在本地哪些能用；常用 5 招：silence.py --threshold -35 去静音、fit.py --aspect 9:16 --fit crop 竖版裁剪、caption.py --animate pop --karaoke 卡拉 OK 字幕、loudness.py -I -14 --tp -1 音量拉齐、render.py --template all 一次出 7 个平台版（字幕按各家 UI 安全区避开）；三点好：先量后剪（probe 量时长/帧率/分辨率/HDR/音频流，不靠猜）、能无损就不重编码（只切段走 stream copy）、自己验活（look.py 出 contact sheet + 本地 review 页，手机框看成片、点字幕改，什么都不上传）；三盆冷水：只管"手"不管"脑"（剪哪段、好不好看还得人定）、字幕转录另装 faster-whisper、裁剪默认居中、主体偏了得自己指锚点。
+- 什么时候用 / 常见坑：每周剪短视频、播客剪竖版、会议录像剪精华时用，本地跑、不上传；只想一键出片、连剪哪段都不想定的人不适合。
+
+**适用场景**：每周剪短视频/vlog/教程/产品演示的人。
+
+**怎么用它搞钱**：剪辑代制 / agent 剪辑工作流教学（本地不上传是隐私卖点）。
+
+**来源**：X 原帖 [@ReignSwords](https://x.com/ReignSwords/status/2125978771584892952)（2026-11-26 23:43 北京发布，正文经 fxtwitter API 核验）· 仓库 [kajisho5/ffmpeg-skill](https://github.com/kajisho5/ffmpeg-skill) ⭐11,538 · MIT · 更新于 2026-11-27（经 GitHub API 核验；帖称 1.1 万 star）· 仓库本体已收进流水线/生产管线库，本条为带实测命令的 X 推荐帖
+
+### AI 视频晚报｜11.26：芬奇新片 95% 靠 AI 改口型、312 例实测镜头结构全过仅 7%–17%（@FootballAnt247）
+
+**核心提炼**
+- 解决什么问题：AI 视频圈一天大事散——这是 11 月 26 日晚报（每晚 9 点更新），一屏看完 10 条。
+- 核心用法（本期 10 条）：1) 芬奇新片补录台词，95% 靠 AI 改口型；2) AI 短片「女孩和死神下棋」走完一生，18 万赞看哭；3) 网友用 AI 把马斯克、黄仁勋拍成超级英雄对决；4) 罗马 Uber 司机放 AI 专属歌，点名乘客和酒店；5) 有人 AI 生成去世孩子在天堂的视频，被批数字招魂；6) 312 例实测：视频模型镜头结构全过的仅 7%–17%；7) 博主转述联合早报：出海短剧前 3–5 秒必须抛钩子；8) 博主估 AI 陪聊 App Tipsy Chat 月入 1100 万美元；9) Picsart 黑五：Seedance 2.5 无限用，Ultra 年付 5 折；10) VEED 黑五年付 7 折，新上线 AI 剪辑 agent。
+- 什么时候用 / 常见坑：追行业动态、做选型决策时翻；第 6 条 312 例实测是选型关键数据（一致性还得人盯），第 7 条出海短剧钩子规则可直接当选题检查项。
+
+**适用场景**：追 AI 视频行业动态的创作者、做模型选型的人。
+
+**怎么用它搞钱**：行业资讯号 / 选型咨询（日报本身就是内容选题库）。
+
+**来源**：X 原帖 [@FootballAnt247](https://x.com/FootballAnt247/status/2125939682160869525)（2026-11-26 21:08 北京发布，正文与长图经 fxtwitter API + 图片直读核验）
+
+### AI 视频日报｜11.25：MAGI-2 上线、30 秒每秒 0.08 美元（@FootballAnt247）
+
+**核心提炼**
+- 解决什么问题：AI 视频圈消息散、更新快——这是每 2–3 天一期的定期日报，一屏看完这两三天的大事。
+- 核心用法（本期 10 条）：1) Sand.ai 发 MAGI-2：30 秒 1080p，每秒 0.08 美元；2) MAGI-2 预告开源权重，4000 亿参数视频模型；3) 马斯克称特斯拉 AI4 实时生成视频，不靠游戏引擎；4) Midjourney 上 Niji V8：角色一致性 + 专用编辑模型；5) YC 系 Taan V1 音乐模型上线，拍了支《爆裂鼓手》梗片；6) Venice 年化收入破 2 亿美元；7) Dreamer 作者 Danijar 创立 Embo，做机器人大脑；8) 博主算账：AI 短剧每万播从 30–100 元跌到 5–10 元；9) 开源分镜 Skill「漫剧老老」走红，号称提抽卡成功率；10) 黑五 CapCut Pro 首月 1 折，带 Seedance 2.5。
+- 什么时候用 / 常见坑：追行业动态、做选型决策时翻；MAGI-2 的价格与开源预告是本期选型关键，第 8 条短剧单价下跌是立项前必读的账。
+
+**适用场景**：追 AI 视频行业动态的创作者、做模型选型的人。
+
+**怎么用它搞钱**：行业资讯号 / 选型咨询（日报本身就是内容选题库）。
+
+**来源**：X 原帖 [@FootballAnt247](https://x.com/FootballAnt247/status/2125411388491468984)（2026-11-25 10:08 北京发布，正文与长图经 fxtwitter API + 图片直读核验）
+
+### AI 视频日报｜11.22：亚马逊洽购 Decart 约 75 亿美元、文投控股 15 天 10 涨停（@FootballAnt247）
+
+**核心提炼**
+- 解决什么问题：AI 视频圈消息散、更新快——这是每 2–3 天一期的定期日报，一屏看完这两三天的大事。
+- 核心用法（本期 10 条）：1) 曝亚马逊洽购实时视频模型公司 Decart，约 75 亿美元；2) Snicklink 毛衣终结者 AI 喜剧爆火，超 2.4 万赞；3) fal 周末送 5 条 Seedance 2.5 免费额度，11/23 截止；4) 即梦海外版上"真无限"：Seedance 2.5 最长 30 天；5) 文投控股借 AI 漫剧概念，15 个交易日 10 个涨停；6) AI 音乐 MV《You Are Here》刷屏，网友吵翻；7) 奥特曼宫斗电影《Artificial》预告挨科技圈骂；8) Thinking Machines 发 Inkling 2 Mini，笔记本能跑；9) OpenAI 主动式助手 Dots 开测部分 Plus 用户；10) Cognition 洽谈 750 亿美元估值，拟融 20 亿美元+。
+- 什么时候用 / 常见坑：追行业动态、做选型决策时翻；第 3、4 条免费额度与"真无限"有时效（11/23 截止），引用时留意日期。
+
+**适用场景**：追 AI 视频行业动态的创作者、做模型选型的人。
+
+**怎么用它搞钱**：行业资讯号 / 选型咨询（日报本身就是内容选题库）。
+
+**来源**：X 原帖 [@FootballAnt247](https://x.com/FootballAnt247/status/2124326014126051737)（2026-11-22 10:16 北京发布，正文与长图经 fxtwitter API + 图片直读核验）
+
+### 把 Claude 搭成一个电影工作室：13 个免费仓库（@octopusaia）
+
+**核心提炼**
+- 解决什么问题：想把 Claude 搭成一个电影工作室，但拆视频、做特效、3D、动效、导出的工具散、还要买软件——这条一次给齐 13 个免费开源仓库，一条流水线全齐。
+- 核心用法（13 库分工）：1) JuneYaooo/rea-video（⭐13,696，Apache-2.0）——把任何视频逐镜头拆开再复刻；2) yihui-dev/awesome-opus5-5-videos（⭐16,590，MIT）——703 个爆款 AI 视频提示词合集；3) lemomo-ai/lemo-opuscar（⭐21,586）——99 种代码做的电影风格；4) storytold/effectcraft（⭐9,258，Apache-2.0）——不用付费软件做动态图形和 VFX；5) patch-gg/pixelfx（⭐9,445，MIT）——244 个现成的复古像素特效；6) comfyanonymous/ComfyUI（⭐148,772，GPL-3.0）——AI 画面生成，控制拉满；7) remotion-dev/remotion（⭐75,969）——用写网页的代码做视频；8) remotion-dev/skills（⭐8,074）——官方给 Agent 的操作规范，照着做不跑偏；9) heygen-com/hyperframes（⭐90,881，Apache-2.0）——把 Agent 写的 HTML 直接变成视频；10) mrdoob/three.js（⭐119,482，MIT）——任何设备都能跑的真 3D；11) greensock/GSAP（⭐31,327）——让文字飞、弹、滑的动效库；12) ahujasid/mcp-for-blender（⭐35,923，MIT）——让 Agent 直接指挥 Blender 干活；13) FFmpeg/FFmpeg（⭐68,286）——最后导出成片；附 21 秒成片演示。
+- 什么时候用 / 常见坑：想零软件成本搭 Claude 电影工作室时照单装；awesome-opus5-5-videos、lemo-opuscar、HyperFrames 在本库已有独立条目，此处不重复计；Remotion Skills 仓库亦见于库内 Lucy_love_AI 条目。
+
+**适用场景**：想用 Claude Code / Codex 出电影级视频的创作者、agent 工作流玩家。
+
+**怎么用它搞钱**：产品片 / 品牌片商单（零软件成本是报价优势）、Skill 装机教学。
+
+**来源**：X 原帖 [@octopusaia](https://x.com/octopusaia/status/2123837034553122843)（2026-11-21 01:53 北京发布，正文经 fxtwitter API 核验）· 13 仓库 star 均 2026-11-27 经 GitHub API 核验
+
+### AI 视频日报｜11.20：Motion 接 GPT-6.2 自动剪片、腾讯开源 Hy4 Flash（@FootballAnt247）
+
+**核心提炼**
+- 解决什么问题：AI 视频圈消息散、更新快——这是每 2–3 天一期的定期日报，一屏看完这两三天的大事。
+- 核心用法（本期 10 条）：1) Motion 接入 GPT-6.2：丢素材加一句话就自动剪片；2) Nuance Labs 数字人照镜子，实时反应超像真人；3) Clueso v2 上线：人和 AI agent 一起剪视频；4) Gemini Mac 版能操控电脑，后台帮你在 Blender 建模；5) ChatGPT 上线实时听写，边说边出字；6) 曝微软接近与字节签下 5 亿美元 AI 订单；7) 腾讯开源 Hy4 Flash：224B 参数、100 万上下文；8) each::labs 获 700 万美元种子轮，做 AI 生成媒体；9) ACE Music v1 登顶人声音乐榜，称首次压过 Suno；10) 2026 发布视频 Top100 出炉，按 X 播放量排名。
+- 什么时候用 / 常见坑：追行业动态、做选型决策时翻；第 1、3 条剪辑自动化是本期对创作者最直接的影响，第 10 条 Top100 本身就是选题库。
+
+**适用场景**：追 AI 视频行业动态的创作者、做模型选型的人。
+
+**怎么用它搞钱**：行业资讯号 / 选型咨询（日报本身就是内容选题库）。
+
+**来源**：X 原帖 [@FootballAnt247](https://x.com/FootballAnt247/status/2123598298099728399)（2026-11-20 10:04 北京发布，正文与长图经 fxtwitter API + 图片直读核验）
+
+### 三家拼一条 15 秒小短剧：同一个人换 3 个镜头，AI 还认不认得出她（@AzrianoY1）
+
+**核心提炼**
+- 解决什么问题：同一个人换 3 个镜头，AI 还认不认得出她——这篇用 ChatGPT、Nano Banana、Grok 三家拼一条 15 秒小短剧，实测人物一致性。
+- 核心用法：1) 人设定死：女主林晚 28 岁、齐耳短发不过下巴、黑色粗框方眼镜、墨绿连帽卫衣配白帽绳、工牌只有两行字「星禾科技」「林晚」、左手腕一根细红绳；老板寸头两鬓花白、银框眼镜、深灰西装不打领带、手里米白保温杯印「暖木」；2) 三家各在同一个对话里依次画定妆照和 3 个镜头（各 5 秒），每张只出 1 次，出什么用什么；9 张关键帧再全交给 Grok Imagine 动起来，每段剪到 5 秒、拼成 15 秒；3) 评分（关键帧每张 10 分，看人物一致、文字、场景道具、规格四样）：A 20/40、B 30/40、C 40/40；视频三段：A 18、B 22、C 28；改稿三家都是 10/10；4) 结论：C 最稳（五官、衣物、时间与空间线、剪辑节奏；红绳始终在左手腕，挂钟 23:40 与 23:42 都画对）；A 把钟面数字印在表盘正中间、每张图多出上下两格、错字全在 A（杯子印成「曬木」、工牌首字错）；B 镜头 3 红绳跳到右手；5) 文末附可直接抄的三条短版提示词（定妆照 + 3 镜头 + 动起来）；附带：旧版人设（长发、红卫衣、工牌写「林小晚」）三家都没上当；客户群改稿轮三家都守住了平台规则（品牌字不超画面 10%、不加广告语、不改长发）。
+- 什么时候用 / 常见坑：做短剧人物一致性选型、写定妆照提示词时对照看；A/B/C 对应哪家作者称 20:15 另发公布帖，本档未追踪；每家每张只跑 1 次、单次取样，结论别当定论；剧本与人物为作者自编。
+
+**适用场景**：AI 短剧选生图工具、定角色一致性方案的人。
+
+**怎么用它搞钱**：选型咨询 / 短剧代制（锁脸稳是接单卖点）。
+
+**来源**：X 原帖 [@AzrianoY1](https://x.com/AzrianoY1/status/2122645964368281630)（2026-11-17 19:00 北京发布，Article 全文经 fxtwitter API 核验）
+
+### 不露脸 YouTube 频道变现：4 个 Skill 全流程（@adilinthewild）
+
+**核心提炼**
+- 解决什么问题：想做不露脸 YouTube 频道赚钱，但怕被 YouTube 取消变现资格、不知道从选题到上传的全流程——这篇把 4 个 Skill 与全部提示词一次给齐。
+- 核心用法：先过变现红线（Step 0）：YouTube 已砍掉部分 AI 频道变现，三条高压线是量产无教育/创意价值内容、情绪诱饵（如假动物救援）、AI 冒充真人或假专家讲健康理财法律；AI 标签本身不降权；四 Skill 分工：Faceless Script（选题到分镜的五步工作流）、Seedance Prompts（用 Seedance 2.5 写提示词，含运镜、灯光与动作）、Faceless Production（Fable + Higgsfield MCP 生成视频、配音、音乐、音效与动效并剪辑）、YouTube Packaging（缩略图、标题、描述与标签）；流程：选高 CPM 赛道（科学/教育类约 $4.50 RPM，160 万播放约 $7,200）→ Fable 调研选题（What If 科学纪录片，如《What If Apophis Hit Earth?》4:33）→ 先出 moodboard 与 storyboard 再生成（Seedance 2.5 1080p）→ 同一聊天连做两条同风格 5 分钟片 → 缩略图一次出 3 版走 YouTube A/B 测试（定格动作瞬间、文字不超过 4–5 个词、留好奇心缺口）→ Shorts 两种做法（长片切 3 条 9:16 15–30 秒，或 Content Factory 全新生成测题材）；判断标准：以 10 条视频为周期，不看单条成绩。
+- 什么时候用 / 常见坑：做不露脸 YouTube / Shorts 频道时照这套跑；示例频道 7 月建号、23 条 1400 万播放、单条最高 500 万+，vidIQ 估月入 $15.4K——为作者引第三方估算，未独立核验；4 个 Skill 在作者指南页免费下载。
+
+**适用场景**：想做不露脸 YouTube / Shorts 频道的人。
+
+**怎么用它搞钱**：YouTube 流量收益 / 不露脸频道代运营（四 Skill 流程可直接接单）。
+
+**来源**：X 原帖 [@adilinthewild](https://x.com/adilinthewild/status/2122332729446371351)（2026-11-16 22:15 北京发布，Article 全文经 fxtwitter API 核验）· 文内指南链为 higgsfield.ai 博客（带 invite_code 参数）
 
 ### Veo3/即梦/可灵/海螺/豆包视频提示词精选（songguoxs）
 
@@ -21,7 +190,7 @@
 
 **怎么用它搞钱**：提示词教学 / 商单（快速复刻爆款玩法）。
 
-**来源**：[songguoxs/awesome-video-prompts](https://github.com/songguoxs/awesome-video-prompts) · ⭐600 · 更新于 2026-11-13（经 GitHub API 核验）
+**来源**：[songguoxs/awesome-video-prompts](https://github.com/songguoxs/awesome-video-prompts) · ⭐601 · 更新于 2026-11-13（经 GitHub API 核验）
 
 ### MiniMax H3 14 种电影级运镜（loopforge0）
 
@@ -34,7 +203,7 @@
 
 **怎么用它搞钱**：运镜教学 / AI 短片商单（电影级运镜是差异化卖点）。
 
-**来源**：[loopforge0/minimaxh3-shots-skills](https://github.com/loopforge0/minimaxh3-shots-skills) · ⭐19 · 更新于 2026-11-13 · X 推荐帖 [@egguy7](https://x.com/egguy7/status/2111677222579040486)
+**来源**：[loopforge0/minimaxh3-shots-skills](https://github.com/loopforge0/minimaxh3-shots-skills) · ⭐22 · 更新于 2026-11-13 · X 推荐帖 [@egguy7](https://x.com/egguy7/status/2111677222579040486)
 
 ### Higgsfield 两部 AI 电影全套提示词资产库
 
@@ -60,7 +229,7 @@
 
 **怎么用它搞钱**：新模型 prompt 教学 / 商单（差异化卖点）。
 
-**来源**：[BeatAPI/awesome-minimax-h3-prompts](https://github.com/BeatAPI/awesome-minimax-h3-prompts) · ⭐216 · 更新于 2026-11-13
+**来源**：[BeatAPI/awesome-minimax-h3-prompts](https://github.com/BeatAPI/awesome-minimax-h3-prompts) · ⭐224 · 更新于 2026-11-13
 
 ### BFL Skills（FLUX 官方）
 
@@ -73,7 +242,7 @@
 
 **怎么用它搞钱**：FLUX 视频商单 / agent 工作流教学。
 
-**来源**：[black-forest-labs/skills](https://github.com/black-forest-labs/skills) · ⭐137 · 更新于 2026-11-05
+**来源**：[black-forest-labs/skills](https://github.com/black-forest-labs/skills) · ⭐139 · 更新于 2026-11-05
 
 ### Awesome Seedance 2.0（ZeroLu）
 
@@ -86,7 +255,7 @@
 
 **怎么用它搞钱**：提示词教学 / 商单。
 
-**来源**：[ZeroLu/awesome-seedance](https://github.com/ZeroLu/awesome-seedance) · ⭐2842 · 更新于 2026-11-13
+**来源**：[ZeroLu/awesome-seedance](https://github.com/ZeroLu/awesome-seedance) · ⭐2882 · 更新于 2026-11-13
 
 ### Awesome Seedance 2.0 Video Prompts（YouMind）
 
@@ -99,7 +268,7 @@
 
 **怎么用它搞钱**：提示词教学 / 商单。
 
-**来源**：[YouMind-OpenLab/awesome-seedance-2-prompts](https://github.com/YouMind-OpenLab/awesome-seedance-2-prompts) · ⭐2219 · 更新于 2026-11-13
+**来源**：[YouMind-OpenLab/awesome-seedance-2-prompts](https://github.com/YouMind-OpenLab/awesome-seedance-2-prompts) · ⭐2258 · 更新于 2026-11-13
 
 ### Awesome Seedance（LearnPrompt）
 
@@ -112,7 +281,7 @@
 
 **怎么用它搞钱**：提示词教学 / 商单。
 
-**来源**：[LearnPrompt/awesome-seedance](https://github.com/LearnPrompt/awesome-seedance) · ⭐2528 · 更新于 2026-11-13
+**来源**：[LearnPrompt/awesome-seedance](https://github.com/LearnPrompt/awesome-seedance) · ⭐2658 · 更新于 2026-11-13
 
 ### Motion Prompt 动效/运镜/UI 提示词查询库（showheyohtaki）
 
@@ -125,7 +294,7 @@
 
 **怎么用它搞钱**：动效提示词教学 / AI 动画商单（精准动效是成片质感的差异化）。
 
-**来源**：[showheyohtaki/motion-prompt](https://github.com/showheyohtaki/motion-prompt) · ⭐2055 · 更新于 2026-11-14（经 GitHub API 核验）· X 推荐帖 [@QingQ77](https://x.com/QingQ77/status/2111970331606847623)
+**来源**：[showheyohtaki/motion-prompt](https://github.com/showheyohtaki/motion-prompt) · ⭐2529 · 更新于 2026-11-14（经 GitHub API 核验）· X 推荐帖 [@QingQ77](https://x.com/QingQ77/status/2111970331606847623)
 
 ### Claude Opus 5.5 代码生成视频四库导航（@czzzzzzJ_ 推荐）
 
@@ -138,13 +307,13 @@
 
 **怎么用它搞钱**：代码生成视频教学 / AI 动画商单（零模型成本是报价优势）。
 
-**来源**：X 推荐帖 [@czzzzzzJ_](https://x.com/czzzzzzJ_/status/2112085934267346976)（麦当mdldm，蓝V，2026-10-19 发布）· 仓库 [lemomo-ai/lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar) ⭐15722（MIT，2026-11-14 更新） / [yihui-dev/awesome-opus5-5-videos](https://github.com/yihui-dev/awesome-opus5-5-videos) ⭐15149（MIT） / [JohnHeibel/PDoomVideo](https://github.com/JohnHeibel/PDoomVideo) ⭐2926 / [joeseesun/opus-video-prompts](https://github.com/joeseesun/opus-video-prompts) ⭐1093（star 均 2026-11-14 经 GitHub API 核验）
+**来源**：X 推荐帖 [@czzzzzzJ_](https://x.com/czzzzzzJ_/status/2112085934267346976)（麦当mdldm，蓝V，2026-10-19 发布）· 仓库 [lemomo-ai/lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar) ⭐21586（MIT，2026-11-14 更新） / [yihui-dev/awesome-opus5-5-videos](https://github.com/yihui-dev/awesome-opus5-5-videos) ⭐16590（MIT） / [JohnHeibel/PDoomVideo](https://github.com/JohnHeibel/PDoomVideo) ⭐3007 / [joeseesun/opus-video-prompts](https://github.com/joeseesun/opus-video-prompts) ⭐1244（star 均 2026-11-14 经 GitHub API 核验）
 
 ### 电影级视频 Skill 十库导航（@awe0_io 推荐）
 
 **核心提炼**
 - 解决什么问题：想直接装上就能出电影级视频的 Skill，但网上视频 Skill 散、质量参差——这条导航按实用度排好了 10 个开源仓，从镜头配方到多模型统一接口一次给齐。
-- 核心用法（帖内排序，10 库分工）：1) Vincentwei1021/video-shotcraft（⭐19197，Apache-2.0）——Claude / Codex 一句话出电影级产品片，150+ 镜头配方 + Remotion 模板；2) LearnPrompt/awesome-seedance（⭐2528，MIT）——840+ 实测案例 + 80 个可安装 Skill，按场景直接写 Seedance 提示词（本库已有独立条目，此处不重复计）；3) cclank/lanshu-awesome-ai-video-kit（⭐454，MIT）——企业 AI 视频项目工具包，仓库自述 411 prompt + 7 个 Skill，自带模型选择器和跨模型翻译（帖称 600+，以仓库自述为准）；4) robonuggets/seedance-skill（⭐109，暂无 LICENSE）——丢网站截图就出液态玻璃宣传片；5) calesthio/generative-media-skills（⭐243，MIT）——150+ 技能覆盖图像 / 视频 / 音频 / 3D，整套流水线；6) Alisa0808/vibe-creating-skill（⭐163，LICENSE 未识别）——把粗糙想法改写成模型能懂的视频提示词，中英双语；7) iart-ai/explainer-video-skills（⭐102，MIT）——一句话生成带旁白的解说视频或图表动画；8) woodfantasy/Seedance-ShotDesign-Skills（⭐136，MIT-0）——专为 Seedance 2.5 做的分镜、延长、编辑 Skill；9) adamperlis/video-skills（⭐45，MIT）——11 个可复用视频生产 Skill（演示、品牌片、UI 教程）；10) inference-sh/skills（⭐808，暂无 LICENSE）——一个 Skill 调 40+ 视频模型，统一接口。
+- 核心用法（帖内排序，10 库分工）：1) Vincentwei1021/video-shotcraft（⭐22785，Apache-2.0）——Claude / Codex 一句话出电影级产品片，150+ 镜头配方 + Remotion 模板；2) LearnPrompt/awesome-seedance（⭐2528，MIT）——840+ 实测案例 + 80 个可安装 Skill，按场景直接写 Seedance 提示词（本库已有独立条目，此处不重复计）；3) cclank/lanshu-awesome-ai-video-kit（⭐469，MIT）——企业 AI 视频项目工具包，仓库自述 411 prompt + 7 个 Skill，自带模型选择器和跨模型翻译（帖称 600+，以仓库自述为准）；4) robonuggets/seedance-skill（⭐112，暂无 LICENSE）——丢网站截图就出液态玻璃宣传片；5) calesthio/generative-media-skills（⭐254，MIT）——150+ 技能覆盖图像 / 视频 / 音频 / 3D，整套流水线；6) Alisa0808/vibe-creating-skill（⭐168，LICENSE 未识别）——把粗糙想法改写成模型能懂的视频提示词，中英双语；7) iart-ai/explainer-video-skills（⭐155，MIT）——一句话生成带旁白的解说视频或图表动画；8) woodfantasy/Seedance-ShotDesign-Skills（⭐138，MIT-0）——专为 Seedance 2.5 做的分镜、延长、编辑 Skill；9) adamperlis/video-skills（⭐45，MIT）——11 个可复用视频生产 Skill（演示、品牌片、UI 教程）；10) inference-sh/skills（⭐827，暂无 LICENSE）——一个 Skill 调 40+ 视频模型，统一接口。
 - 什么时候用 / 常见坑：不知道从哪个 Skill 装起、想按任务挑现成 Skill 时照单装；seedance-skill 与 inference-sh/skills 暂无 LICENSE 声明、vibe-creating-skill 许可未识别，商用前先确认授权；inference-sh 系 API 厂商 Skill，走其 API 按量付费；lanshu 帖称 600+ prompt 与仓库自述 411 有出入，以仓库为准。
 
 **适用场景**：想用 Claude Code / Codex 出电影级产品片、解说视频、品牌片的创作者、agent 工作流玩家。
@@ -177,7 +346,7 @@
 
 **怎么用它搞钱**：提示词教学 / 商单（规范写法是报价底气）。
 
-**来源**：[geekjourneyx/awesome-ai-video-prompts](https://github.com/geekjourneyx/awesome-ai-video-prompts) · ⭐90 · MIT · 更新于 2026-11-13（经 GitHub API 核验）
+**来源**：[geekjourneyx/awesome-ai-video-prompts](https://github.com/geekjourneyx/awesome-ai-video-prompts) · ⭐92 · MIT · 更新于 2026-11-13（经 GitHub API 核验）
 
 ### Seedance 2.0 反转式喜剧完整提示词：《老板不批》（@Soranlan）
 
@@ -476,7 +645,7 @@
 
 **怎么用它搞钱**：产品宣传片商单 / 动态图表视频代制。
 
-**来源**：X 原帖 [@Vale_Eon](https://x.com/Vale_Eon/status/2121578751205212277)（2026-11-14 20:19 北京发布，正文经 fxtwitter API 核验）· 仓库 [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) ⭐84164 · Apache-2.0 · 更新于 2026-11-14（经 GitHub API 核验；仓库本体已收进提示词优化库，本条为带 v0.9.44 新版信息的 X 推荐帖）
+**来源**：X 原帖 [@Vale_Eon](https://x.com/Vale_Eon/status/2121578751205212277)（2026-11-14 20:19 北京发布，正文经 fxtwitter API 核验）· 仓库 [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) ⭐90881 · Apache-2.0 · 更新于 2026-11-14（经 GitHub API 核验；仓库本体已收进提示词优化库，本条为带 v0.9.44 新版信息的 X 推荐帖）
 
 ### 不露脸卡通讲商业故事：4 条视频涨粉 1.84 万 + 全套 4 个提示词模板（@daodao166888）
 
@@ -502,7 +671,7 @@
 
 **怎么用它搞钱**：短剧代制接单 / 工作流教学。
 
-**来源**：X 原帖 [@charlieonai](https://x.com/charlieonai/status/2121589601777099204)（2026-11-14 21:02 北京发布，正文经 fxtwitter API 核验）· 仓库 [charliewwdev/OpenMontage](https://github.com/charliewwdev/OpenMontage) ⭐46 · AGPL-3.0 · 更新于 2026-11-14（经 GitHub API 核验）
+**来源**：X 原帖 [@charlieonai](https://x.com/charlieonai/status/2121589601777099204)（2026-11-14 21:02 北京发布，正文经 fxtwitter API 核验）· 仓库 [charliewwdev/OpenMontage](https://github.com/charliewwdev/OpenMontage) ⭐71 · AGPL-3.0 · 更新于 2026-11-14（经 GitHub API 核验）
 
 ### 付鹏 AI 短剧访谈：投流占 80–90%、创作者到手不到 5%（@alacheng）
 
@@ -554,7 +723,7 @@
 
 **怎么用它搞钱**：短剧代制接单 / Skill 装机教学。
 
-**来源**：X 原帖 [@ErikAngeles18](https://x.com/ErikAngeles18/status/2121529303758147852)（2026-11-14 17:02 北京发布，正文经 fxtwitter API 核验）· 清单仓库 [UnderleveledBuilder/awesome-short-drama-skills](https://github.com/UnderleveledBuilder/awesome-short-drama-skills) ⭐2310 · CC0-1.0 · 更新于 2026-11-14（经 GitHub API 核验）
+**来源**：X 原帖 [@ErikAngeles18](https://x.com/ErikAngeles18/status/2121529303758147852)（2026-11-14 17:02 北京发布，正文经 fxtwitter API 核验）· 清单仓库 [UnderleveledBuilder/awesome-short-drama-skills](https://github.com/UnderleveledBuilder/awesome-short-drama-skills) ⭐2896 · CC0-1.0 · 更新于 2026-11-14（经 GitHub API 核验）
 
 ### 纯代码做视频 Video-as-Code：Gemini 4 零 GPU 渲染（@KOF97AI）
 
@@ -741,6 +910,7 @@
 
 ## 更新日志
 
+- 2026-11-27：早档搜集新增 13 条（X 13 条：@swordBluesy What If 五步、@Muss7749 短剧投流素材批量、@AIExplorerTim 9 个开源仓库导航、@KOF97AI 转发 MAGI-2 双向工作流、@bkdgiffug 短剧 3 项目导航、@ReignSwords ffmpeg-skill、@FootballAnt247 晚报 11.26/日报 11.25/11.22/11.20、@octopusaia 13 仓库导航、@AzrianoY1 三家对照、@adilinthewild 不露脸 YouTube 4 Skills；13 帖正文与时间戳均经 fxtwitter API 核验，Muss7749/AzrianoY1/adilinthewild 三篇 Article 全文已读，KOF97AI 所链 Article 经 live browser 直读核验（作者 @op7418），4 期日报长图逐张直读核验；浏览器报告多处偏差已按 API 原文/图片纠正：octopusaia 13 仓清单以 API 原文为准（浏览器版 ReaVoice/OpusAudio/Fable 等 9 项在原文未见不采用）；swordBluesy 流程以 API 原文五步为准（"8 句剧本/35 词提示词/9 秒竖屏"原文未见不采用，6500 万为所引频道总量）；Muss7749 五种剪法为高光前置/顺剪/跳剪/悬念截停/冲突对白、4 比例为 9:16/4:5/1:1/16:9（浏览器版 A–E 命名与 3:4 有误）；11.22 与 11.26 两期日报长图内容以图片直读为准（浏览器版各 8 条与图片不符不采用）；adilinthewild 用 Seedance 2.5 非 1.5；去重：@neo_cn 运镜短帖与 @nanyuan0412 MAGI-2 对比 Article 与 11-26 提示词优化库已收条目为同一帖，跨库去重不重复计；GitHub 侧：文档关键词 `awesome video prompts`/`viral video prompts` 与补充关键词 `awesome ai video prompts`/`video prompt collection` 均无新命中（前排已入库，其余 ≤16★ 未过 star>20 线）；老 26 项 star 经 GitHub API 全量刷新（0 回落：songguoxs 600→601、loopforge0 19→22、BeatAPI 216→224、BFL 137→139、ZeroLu 2842→2882、YouMind 2219→2258、LearnPrompt 2528→2658、showheyohtaki 2055→2529、lemo-opuscar 15722→21586、awesome-opus5-5-videos 15149→16590、PDoomVideo 2926→3007、opus-video-prompts 1093→1244、video-shotcraft 19197→22785、lanshu 454→469、seedance-skill 109→112、generative-media-skills 243→254、vibe-creating-skill 163→168、explainer-video-skills 102→155、Seedance-ShotDesign 136→138、inference-sh 808→827、geekjourneyx 90→92、hyperframes 84164→90881、OpenMontage 46→71、awesome-short-drama-skills 2310→2896；adamperlis 45、ilkerzg 138 不变），共 67 个项目
 - 2026-11-14：晚档搜集新增 22 条（X 22 条：主窗口 18 条 @KOF97AI Fable 5.2 动漫大场面/Video-as-Code、@ChinaAIDaily AI 日报晚版、@aimusheng Phraze、@Vale_Eon HyperFrames、@daodao166888 卡通商业故事、@charlieonai OpenMontage、@alacheng 付鹏访谈、@NFT_Chen 曾妍、@FitchReed313703 黄果短剧五步法、@ErikAngeles18 短剧 Skill 清单、@fu1234567890qq 300 万爆款全流程、@FootballAnt247 四模型对照/最后一镜留钩子、@neo_cn 新模型三组对照/衣服穿帮、@TanLuAI 白模预演、@realJustinSoong PixelDojo Ray3.2；补翻 11-11 3 条 @KOF97AI 锁脸、@YunxiOP 短剧榜、@alexmashrabov Higgsfield 13.5 亿美元；补翻 11-08 1 条 @Lucy_love_AI 10 个 Codex 视频 Skills；22 帖正文与时间戳均经 fxtwitter API 核验，fu1234567890qq/TanLuAI/FitchReed313703 三篇 Article 与 daodao166888 提示词串全文已读；ChinaAIDaily 配图直读核验为封面卡片不含细则，可灵 198.02 亿增资/180 亿美元估值与 GLM-5.3 编程+50%/Flash MIT 两条经公开报道交叉核验；去重/排除：@aimusheng Magai 与 @RobbXiao Excel Formula Bot 为非视频搞钱案例不收，@alacheng 访谈"250 元/分钟"说法未在原帖正文核验到不采用；GitHub 侧本档不做（一天一次、早档已做）；另核验 OpenMontage 46★ AGPL-3.0、awesome-short-drama-skills 2310★ CC0-1.0、hyperframes 84164★ Apache-2.0，均 2026-11-14 GitHub API 实测），共 54 个项目
 - 2026-11-14：午档搜集新增 13 条（X 13 条：主窗口 7 条 @FootballAnt247 写光/视频日报、@AI_DVD6 冰箱小剧场新案例、@WDdabiange 11 月横评、@park_danie36173 Kling 4.0 写法、@natiakourdadze Reddit 火柴人引流、@neo_cn 3 秒测试；补翻 11-11–11-12 6 条 @daodao166888 What If 3D / Minecraft、@Formulasearch 四要素 / Skill 对照实验、@xiayitiaoAI 四川话、@TanLuAI 御剑；13 帖正文与时间戳均经 fxtwitter API 核验，日报配图/实验结果表/Kling 4 张卡片逐张直读核验；去重：@daodao166888 What If 2D 已在复制爆款库、@Zizaiaiai 声音篇/@daodao166888 地图灾难/@xiayitiaoAI 文戏反应镜头已在提示词优化库，均不重复计），共 32 个项目
 - 2026-11-14：早档搜集新增 8 条（GitHub 2 个：ilkerzg/awesome-video-prompts 138★、geekjourneyx/awesome-ai-video-prompts 90★ MIT；X 6 条：@Soranlan 反转喜剧完整提示词、@qloog 5 篇短剧教程合集、@itsyhy 代码+AI 全自动流水线、@grapeot AI 短剧分账账本、@ycnot84《种毛衣》宣传片拆解、@taketokennn NotebookLM 工作流；8 条正文与时间戳均经 fxtwitter API 核验，ycnot84 与 itsyhy 两篇 Article 全文已读），老 21 项 star 全量刷新（0 回落：LearnPrompt 2122→2528、showheyohtaki 411→2055、lemo-opuscar 3544→15722、awesome-opus5-5-videos 6464→15149、video-shotcraft 15491→19197），共 19 个项目
