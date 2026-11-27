@@ -10,6 +10,111 @@
 
 ## 条目
 
+### 不囤货、不露脸、不投广告，靠 AI 短视频做跨境一件代发（@dongcidaci111）
+
+**核心提炼**
+- 解决什么问题：不囤货、不露脸、不投广告，靠 AI 短视频做跨境一件代发。
+- 核心用法（3 步）：1) 养号找爆款；2) AI 复刻（剧情不变换个人）；3) Reels 自然流引到独立站，供应商代发。
+- 案例：懒人靠枕，1688 批发价 ¥80 左右，独立站卖 $96.99（作者说法，附 59 秒视频）。
+- 什么时候用 / 常见坑：想做跨境一件代发、不想囤货投流时用；这条帖子发布仅约 13 分钟即被搜到，互动极低（0 回复/0 转帖/0 喜欢、4 次查看），属冷启动案例帖，案例真实性未独立核实。
+
+**适用场景**：想做跨境一件代发、不想囤货投流的人。
+
+**怎么用它搞钱**：独立站一件代发差价 / 爆款复刻代运营。
+
+**来源**：X 原帖 [@dongcidaci111](https://x.com/dongcidaci111/status/2126299261352530301)（2026-11-27 20:57 北京发布，正文经 fxtwitter API 核验）
+
+### 3 个人搞 AI 小宠物矩阵，一个月干出 30w+（@munaguovuo）
+
+**核心提炼**
+- 解决什么问题：3 个人搞 AI 小宠物矩阵，一个月干出 30w+（作者说法）。
+- 核心用法：用 AI 萌宠做外壳，把全网最赚钱的赛道全吞了——橘猫买菜做饭抢占美食+家居赛道；小猫程序员加班收割打工人共鸣；萌宠情侣日常吃透情感赛道流量；猫狗教英语/讲科普切入教育和科技赛道。
+- 变现三条腿：1) 接商单：抖音星图、小红书蒲公英全是猫粮、玩具商单，一条 500–1500 元；2) 橱窗佣金：挂同款厨房好物或宠物用品，爆一条视频单日佣金 5000+；3) 私域后端：评论区放"免费领 AI 制作资料"钩子导流微信，做 1999 元陪跑群，300 人核心群满员。
+- 什么时候用 / 常见坑：想起 AI 萌宠矩阵号、做多赛道分发时用；帖内未附具体提示词或工具清单，只给赛道与变现结构；收入数字均为作者说法，未独立核实。
+
+**适用场景**：想起 AI 萌宠矩阵号、做多赛道分发的人。
+
+**怎么用它搞钱**：商单 + 橱窗佣金 + 陪跑群。
+
+**来源**：X 原帖 [@munaguovuo](https://x.com/munaguovuo/status/2126294631050801398)（2026-11-27 20:38 北京发布，正文经 fxtwitter API 核验）
+
+### AutoClip：1 小时 48 分直播，5 分钟切出 19 条竖屏，整月模型账单 0.08 元（@octopusaia）
+
+**核心提炼**
+- 解决什么问题：长直播/播客/访谈切竖屏切片太慢——这套流程 1 小时 48 分直播 5 分钟切出 19 条竖屏，整月模型账单 0.08 元（作者/实测说法）；工具是 GitHub 开源项目、MIT 协议、约 1.7 万星，桌面版，不用写代码。
+- 核心用法（6 步，按原文）：1) 下载安装包：去仓库 Releases 页拿最新版，v1.6.1 是 11 月 25 日发的正式版，v1.6.2 预发布也出了；Windows 10/11 64 位或 Apple Silicon 的 Mac 都能跑，解压即用；2) 接模型：打开设置填阿里云百炼 API Key，文字模型选 qwen-plus，语音转写选 qwen-audio-3.1-asr-flash；坑：电脑上有 SSLKEYLOGFILE 环境变量先删掉，软件自带的 Python 会被它搞崩；3) 导入视频：本地文件直接拖进去，或贴直播回放、播客链接（链接导入只适合公开可抓的地址，平台有限制改走本地文件）；4) 选平台，定版式：抖音和小红书默认访谈式版式，TikTok、Reels、Shorts 默认满屏播客式；一个平台最多出 10 条合格片段，19 段是几个平台加在一起的数；5) 生成成片：第一次跑建议选处理全片，别只截一段；实测 1 小时 48 分直播 308 秒跑完，出 19 张卡片，每张一张图、一个标题、一段简介、几个话题；6) 逐条过，改标题，导出：卡片一张张点开看，标题不满意就改，不行的直接删，满意了点导出，ZIP 包里封面、标题、简介、话题一次给齐，直接发平台。
+- 进阶玩法：跑完打开软件目录下的 metadata 文件夹，找到 step3_all_scored.json，里面是每段的完整评分，按分数排序就能看到哪些段被筛掉了；怎么判断一段值不值得发，四条标准：有明确观点不是闲聊、有数字或具体例子能当标题、30 秒内能讲完不拖、开头三秒有钩子能留住人——占两条就能发，占三条就是好素材。
+- 成本账：实测 1 小时 48 分直播 19 段，百炼整月账单 0.08 元；仓库 README 另有三组官方数据：1 小时 43 分英文访谈，小红书 7.5 分钟出 10 条，文字模型花了 0.09 元；2 小时 52 分播客走本地 Whisper，29.5 分钟出 10 条，花了 0.20 元。
+- 三句实话：别信"全自动"——成片出来了，标题和取舍还得自己过一遍；短板：实测里 24 到 43 分钟那一段一条都没选上，模型也会漏东西；隐私：转写走云端时音频要上传到阿里云，介意的改成本地转写，装个 220MB 左右的本地组件就行。
+- 什么时候用 / 常见坑：有长直播/播客/访谈，想批量切竖屏切片分发时用；注意区分：这是 GitHub 开源项目，别跟收费的美国同名 SaaS autoclip.dev 搞混；仓库 [zhouxiaoka/autoclip](https://github.com/zhouxiaoka/autoclip)，GitHub API 实测 17,368★ MIT。
+
+**适用场景**：有长直播/播客/访谈，想批量切竖屏切片分发的人。
+
+**怎么用它搞钱**：直播切片代剪 / 切片矩阵起号接商单。
+
+**来源**：X 原帖 [@octopusaia](https://x.com/octopusaia/status/2126291447511187590)（2026-11-27 20:26 北京发布，正文经 fxtwitter API 核验）
+
+### AI 漫剧《姐姐的绝美闺蜜》1-20 集合集（@22Xianyu）
+
+**核心提炼**
+- 解决什么问题：AI 漫剧合集范本——1–20 集一次放出，视频 1 小时 03 分 29 秒。
+- 核心用法：男主陆景瑜与姐姐的绝美闺蜜南宫柚，两人因意外产生交集，随后在乡村老家相处、网吧寻回等日常互动中，逐渐打破年龄与身份的界限，展开一段高甜"姐弟恋"故事。
+- 什么时候用 / 常见坑：做 AI 漫剧/短剧合集、想学长合集结构时用；帖子正文未附制作方法或提示词，属短剧成片合集，看结构不看做法。
+
+**适用场景**：做 AI 漫剧/短剧合集、想学长合集结构的人。
+
+**怎么用它搞钱**：短剧合集号流量变现 / 漫剧代制。
+
+**来源**：X 原帖 [@22Xianyu](https://x.com/22Xianyu/status/2126278884966740385)（2026-11-27 19:36 北京发布，正文经 fxtwitter API 核验）
+
+### 花钱买的 AI 工具，免费开源版全都有——10 个按用途分组（@octopusaia）
+
+**核心提炼**
+- 解决什么问题：花钱买的 AI 工具，免费开源版全都有——10 个按用途分组，作者称星数是当天在 GitHub 实测、装法只写最顺的那条路。
+- 核心用法（按原文分组）：本地跑模型——Ollama（ollama/ollama，约 18.8 万星）、llama.cpp（ggml-org/llama.cpp，约 13.6 万星）、GPT4All（nomic-ai/gpt4all，约 7.7 万星）、BitNet（microsoft/BitNet，约 4.3 万星）；聊天界面和开发框架——Open WebUI（open-webui/open-webui，约 16.0 万星）、Transformers（huggingface/transformers，约 16.9 万星）、AutoGen（microsoft/autogen，约 6.2 万星）、Flowise（FlowiseAI/Flowise，约 5.6 万星）；出图和效率——Stable Diffusion WebUI（AUTOMATIC1111/stable-diffusion-webui，约 16.5 万星）、GPT Academic（binary-husky/gpt_academic，约 7.2 万星）。
+- 作者建议：别 10 个全装，先装一个——只想聊天装 Ollama，只想出图装 Stable Diffusion WebUI，想写代码调用模型装 Transformers；跑顺了一个，再装下一个。
+- 什么时候用 / 常见坑：想搭免费本地 AI 工具链时照单装；这是通用 AI 开源工具导航，非视频专属（仅 SD WebUI 出图相关）；星数为作者说法。
+
+**适用场景**：想搭免费本地 AI 工具链的人。
+
+**怎么用它搞钱**：本地 AI 工具链代搭建 / 教程引流。
+
+**来源**：X 原帖 [@octopusaia](https://x.com/octopusaia/status/2126270812630011978)（2026-11-27 19:04 北京发布，正文经 fxtwitter API 核验）
+
+### Agent + CLI 搭 10 积分出 90 秒 1080p 短片的本地流水线（@danugoTao）
+
+**核心提炼**
+- 解决什么问题：一条 90 秒毛绒英文绘本短片，从分镜出图、局部动画、多角色配音、真实拟音混音到 1080p 成片导出，Google Flow 只扣 10 积分，本地零 GPU（配音和底噪音乐另外走极低成本的 Gemini TTS 与本地开源拟音，不是"绝对零元"）。
+- 为什么改：全动态线整条砍掉——起初用参考图+声音角色卡锁死人物，15 秒 R2V 主片连续扩拍三轮拿 27 秒无缝视频，一集账面只要 96 积分；实测连续 3 集一次过率 0/3（第 3 集小配角身高膨胀成巨人，第 4 集片尾台词被生生截断，第 5 集两个角色左右站位穿帮），白白废掉 252 积分，占那批总消耗的 57%，均摊一条 27 秒烧 180 积分；942 积分花出去后反应过来：连续生成只要最后 3 秒崩了，前面 24 秒全部陪葬——做系列内容，核心瓶颈从来不是某一段画质够不够惊艳，而是容错粒度太粗。
+- 分页混动架构：绝大多数画面用静态 2K 插画（一页只讲一个清晰动作，Flow 里用 nano2 生图不扣视频积分，原生放大到 2K 也不扣）；只挑 2 个情绪拐点做无声动态（一集 90 秒里只有高潮页和收尾页跑 6 秒 i2v，第 4 页抽歪了就只花几分重抽第 4 页，前面 8 页纹丝不动）；后期 100% 撤回本地（配音、拟音、配乐、调色、字幕、响度全部脱离浏览器，用 Python 和 FFmpeg 本地 0 积分跑完）。
+- 成本账：改完第一版（13 页 143 秒），积分从 180 掉到 48；压紧到 9 页 90 秒、再把非敏感动态页切到低成本路由后，最近这集直接压到了 10 积分（如果里面包含会触发版权误判的角色，混用高阶模型也就 20 到 23 积分）；账上 9,000 多积分，按老跑法只够硬撑几十集，现在能稳跑 400 多集。
+- Agent 串 gflow-cli：分镜剧本收敛成一份结构化的 script.json，里面定义好角色声线、每页画面提示词、是否需要动态和台词，整个生产指令全部通过开源工具 gflow-cli（命令行和 MCP 接口）串行驱动；角色资产一次锁定（在 Flow 里建好角色卡并绑定形象后，后续生成直接传角色 ID 引用，建卡本身 0 积分）；静态页批量出图 + 原生 2K 放大（9:16 页面用 nano2 出图，确认构图后直接调用 CLI 把图片放大到 1536×2752，0 视频积分）；单进程串行调度（gflow-cli 底层通过 Playwright 复用同一个浏览器会话，不能并发开两个任务抢配置锁，脚本按页面顺序一页一页串行跑）。
+- 4 个工程细节：1) 混用路由 + 自动降级把视频积分再砍 72%——普通场景、道具和没有特定敏感染色特征的角色优先走 veo-lite，6 秒只要 5 积分（同长度 omni-1.2-flash 要 18 积分）；画面里带灰兔这类容易撞车知名动漫形象的特征，提交给 veo-lite 会直接报错 PUBLIC_ERROR_IP_INPUT_IMAGE，拦截不会扣分，路由脚本加了一层自动捕获，遇到这个报错或剧本提前标了高敏角色就自动降级切到 omni-1.2-flash；两页非敏页实测就是 5 × 2 = 10 积分；2) 无声活页必须加"闭嘴尾句"——所有用于拼接外部配音的动态提示词末尾由脚本统一锁死一句 "Silent characters, closed-mouth calm expression, no speech, ambient sound only."，把视频模型彻底变成纯粹的哑剧动画师；3) 身高参考图只准进生图，严禁直接喂给视频——先画一张不带文字的纯身高比例基准图，用 i2i 结合角色卡把站位和比例直接焊死在静态起始帧里，再拿这张定好比例的图去生视频；千万别把纯身高图或拼图直接扔进视频参考接口，极易触发素材校验拦截；4) 后期 100% 撤回本地——Flow 自带的在线时间线有三个硬伤：网页导出上限只有 720p、改配乐/停顿/字幕每次用 Omni 重绘都要再烧 24 积分且画面大概率跟着漂移；本地纯 CPU 管线零积分、可无限次秒级微调：干掉 FFmpeg zoompan 的 7.5Hz 闪烁（先超采样到 1620×2880，再用 OpenCV 的 cv2.warpAffine 做浮点亚像素余弦缓动，帧间差均值 YDIF 从 2.28 降到 0.228）；活页末帧定格续接（用 OpenCV 精准抽取动态片段最后一帧，关闭二次调色后接上轻缓静帧推拉）；外部配音 + CC0 真实拟音 + 语音包络闪避（每句单独落盘实测毫秒时长反推页面停留时间，绝不截断尾音；叠加 Freesound 的 CC0 真实拟音，再用 10 毫秒级语音包络平滑压低背景摇篮曲，最后做两遍 -15 LUFS 响度标准化）；9 项自动交付体检（1080×1920 分辨率、30fps 帧率、码率、响度、平均亮度和极暗帧，全部绿灯才算过关）。
+- 坦诚边界：gflow-cli 是社区开源的 Playwright 浏览器自动化项目，并不是 Google 官方公开的 SLA API，使用前需要自己看清平台条款与账号额度；自动体检脚本只能保证分辨率、响度和亮度不翻车，防不住创作细节上的坑，最后一道品控还是得人来听、人来看。
+- 开源：flow-storybook-kit（MIT 开源协议）——去掉私有角色和个人配置后的本地防抖拼装引擎、9 项交付体检脚本、以及 veo-lite / omni 混用路由模板；里面自带一个不花钱、不用配任何 API Key 的演示生成器，3 条命令就能在本地跑出一条完整的 1080×1920 竖屏样片；仓库地址和快速启动命令在评论区第一条；仓库 [danugot/flow-storybook-kit](https://github.com/danugot/flow-storybook-kit)，GitHub API 实测 MIT、0★（当日新建）。
+- 什么时候用 / 常见坑：做系列绘本/动画短片、想把单集成本压到 10 积分量级时用；浏览器报告所称"《我，乌龟》""2.5 天""15 个 6 秒镜头"在 Article 原文未见不采用，一集为 9 页 90 秒、仅 2 页 6 秒动态。
+
+**适用场景**：做系列绘本/动画短片、想把单集成本压到 10 积分量级的人。
+
+**怎么用它搞钱**：系列短片量产代制 / 流水线模板出售。
+
+**来源**：X 原帖 [@danugoTao](https://x.com/danugoTao/status/2126256195396669749)（2026-11-27 18:05 北京发布，Article 全文经 fxtwitter API 核验）
+
+### Google Colab 保姆级教程：从运行代码到生成短片（附带提示词）（@0xlangeai）
+
+**核心提炼**
+- 解决什么问题：写给第一次听说或第一次打开 Google Colab、手头只有普通电脑却想亲手跑出一条视频的读者；先讲清 Colab 是什么、免费能用什么、付费套餐和 Google AI 会员各自给多少算力分，再围绕同一主题"雨中纸船"，从点下第一个运行键开始做出两条视频。
+- 核心用法（三步）：1) 零成本必做（第四、五章）：用免费 CPU 跑通第一行代码，再画出一条 5 秒 2D 红色折纸船动画并下载到本机——提示词可直接发给 Codex、Claude 或 Gemini 4 Neon 要 Python 脚本（Pillow 画船 + FFmpeg 编码，640×360、24fps、120 帧，输出到 /content/boat.mp4）；配套笔记本 paper-boat-cpu.ipynb 分三格跑（检查 Pillow 和 FFmpeg → 选船的颜色并渲染 → 播放刚生成的 MP4）；2) 有算力分进阶（第六章）：切到 L4 GPU，用现成笔记本把纸船做成带雨声的写实短片——MiniMax H3 开源视频模型，ComfyUI 封装、8 步 Turbo LoRA，直接生成 864×480、24fps、124 帧的有声 MP4；三格：硬件检测（!nvidia-smi 核对 L4/约 24GB 显存）→ 安装 ComfyUI 并下载 H3 权重（ComfyUI v0.46.0 + 5 个模型权重，L4 实测从硬件检查结束到依赖和五份权重就绪约 3 分 12 秒）→ 改第 3 格开头的 PROMPT 点 ▶ 生成（提交生成到拿到有声 MP4 用了 204.8 秒；成片 864×480、5.17 秒、有声；验收后立刻断开连接并删除运行时，GPU 挂着不关会持续扣算力分）；3) 交给 AI 编程助手（第七章）：把提示词发给 Codex、Claude Code 或 Antigravity，让它安装官方 Colab CLI（googlecolab/google-colab-cli），再申请算力、出片和下载；另有 colab-operator Skill。
+- 算力账：免费版 $0、0 分（动态免费额度，常见 T4，不保证可用）；Pay As You Go $9.99/100 分；Colab Pro $9.99/月 100 分；Colab Pro+ $49.99/月 600 分；Google AI Pro $19.99/月 200 分、Ultra $99.99/$199.99 每月 1,000–2,000 分；算力分 90 天过期、可叠加；L4 约 3.0–4.8 分/小时，本次 L4 会话实际开了 8 分 18 秒，约 0.4–0.7 CU；价格均为美区参考。
+- 提示词（中英）：中文"黄昏的一摊积水里，一只鲜红的折纸船缓慢漂过。低机位跟拍纸船和周围扩散的涟漪，湿润路面反射暖色路灯光。动作轻柔写实，只有柔和同步的雨声和水声，不要人声或音乐。"英文 "A tiny bright red origami paper boat drifts across a rain puddle at dusk. One low tracking shot follows the boat and the concentric ripples around it. Wet pavement reflects warm streetlights. Gentle, realistic motion. Soft synchronized rain and water sounds. No speech or music."
+- 什么时候用 / 常见坑：只有普通电脑、想零成本跑通 AI 视频出片时用；云端电脑是临时分配的，运行时生成的视频默认暂存在 /content 目录，断开或关机就会清空，出片后要及时下载；笔记本保存在自己 Google 云端硬盘里不会丢；浏览器报告所称"用 OpenAI Audio API 生成 MP3 后下载再用 Colab 上传合成有声短片""把提示词分段粘贴到 Colab 最后一个单元格提交，输入 1 生成""可改到 10 秒"在 Article 原文未见不采用——有声 MP4 由 H3 模型直接生成，生成路径为改第 3 格 PROMPT 后点 ▶ 运行。
+
+**适用场景**：只有普通电脑、想零成本跑通 AI 视频出片的人。
+
+**怎么用它搞钱**：Colab 出片教程引流 / 零成本出片代制。
+
+**来源**：X 原帖 [@0xlangeai](https://x.com/0xlangeai/status/2126239508475867194)（2026-11-27 16:59 北京发布，Article 全文经 fxtwitter API 核验）· Article：https://x.com/i/article/2126221671090778112
+
 ### 不露脸动画讲游戏角色的一生：热门 IP + What If 脑洞 + 第二人称沉浸式叙事（@daodao166888）
 
 **核心提炼**
@@ -1014,6 +1119,7 @@
 
 ## 更新日志
 
+- 2026-11-27：晚档搜集新增 7 条（X 7 条：@0xlangeai Google Colab 保姆级教程、@danugoTao Agent + CLI 10 积分出 90 秒 1080p 短片、@octopusaia 10 个免费开源 AI 工具、@22Xianyu AI 漫剧《姐姐的绝美闺蜜》1-20 集合集、@octopusaia AutoClip 直播切片 6 步、@munaguovuo AI 小宠物矩阵、@dongcidaci111 AI 短视频跨境一件代发；7 帖正文与时间戳均经 fxtwitter API 核验，0xlangeai/danugoTao 两篇 Article 全文已读；浏览器报告多处偏差已按 API 原文纠正：0xlangeai"用 OpenAI Audio API 生成 MP3 后下载再用 Colab 上传合成有声短片""把提示词分段粘贴到 Colab 最后一个单元格提交，输入 1 生成""可改到 10 秒"原文未见不采用，有声 MP4 由 H3 模型直接生成，生成路径为改第 3 格 PROMPT 后点 ▶ 运行，成片 5.17 秒 864×480 24fps 124 帧、生成 204.8 秒、L4 会话 8 分 18 秒约 0.4–0.7 CU；danugoTao"《我，乌龟》""2.5 天""15 个 6 秒镜头"原文未见不采用，一集为 9 页 90 秒、仅 2 页 6 秒动态；octopusaia AutoClip 浏览器版第 1/2 步原文未见不采用，6 步以 API 原文为准；danugot/flow-storybook-kit 与 zhouxiaoka/autoclip 仓库均经 GitHub API 核验（MIT，0★/17,368★）；去重/排除：@Qihai613 微信小游戏搞钱合集（非视频）、@AIExplorerTim 引用 11-25 旧文章（非今日发布）、@qxl970 四大平台推流逻辑（运营分发教程）、@noahduck283 AI 工具怎么选（通用选型）、@KOF97AI MAGI-2 新闻/黑五促销/单工具介绍、@iamzvai 单条视频晒图；未查完如实注明：关键词 Latest 流每组主要看首屏、未逐条翻查各作者全部回复与评论区推荐，评论区与引用链中可能仍有漏网；覆盖至约 21:11，之后新帖不在本次范围），共 82 个项目
 - 2026-11-27：午档搜集新增 8 条（X 8 条：@daodao166888 游戏角色一生提示词串、@KOF97AI 新加坡 4K 城市大片、@octopusaia 14 个免费工具、@octopusaia 视频站 7 步、@octopusaia 53 秒图书介绍视频 12 步、@huangjun92 短剧 1-8 合集、@KOF97AI 伦敦 4K 城市大片、@bangbuilds 10 个开源工具动画工作室；8 帖正文与时间戳均经 fxtwitter API 核验，bangbuilds Article 全文已读，daodao166888 第 4 号提示词全文已读；浏览器报告多处偏差已按 API 原文纠正：KOF97AI 伦敦/新加坡两帖步骤顺序以 API 原文为准（锚图→Lyria 配乐→gflow 运镜→Pillow+FFmpeg），"固定种子循环 3 次取最佳"与新加坡帖"Pika 1.5 + Runway"原文未见不采用，新加坡成片 23 秒非 19 秒；octopusaia 图书帖 12 步以 API 原文为准（浏览器版"单图 4-6 秒，1-2 分钟""每页 1.6 秒"原文未见不采用），该帖与视频站帖均为长文帖非 Article；octopusaia 视频站帖"按三类定字段/挑最轻工具链/3 个最小字段"原文未见不采用，标题"4300 万条评论"与正文"4 万条推荐评论"不一致已注明；huangjun92 合集视频 62,604 查看；去重/排除：@bangbuilds 9 个官方账号（视频相关仅 3/9）与 @kaikubuilds GitHub 屠榜 5 项目（视频相关仅 autoclip 1/5）弱相关未收；@Bigwuking1"1000+分镜提示词宝典"内容在网盘链接后未收；未查完如实注明：13 位作者组合 OR 搜索 09:00–11:00 段主要靠滚动覆盖、未逐作者单独核查，@bangbuilds 主页约 14:00/12:00/11:00 三条原帖未逐条打开核验，"AI video showcase"等少数英文关键词未单独搜；覆盖至约 15:00，之后新帖不在本次范围），共 75 个项目
 - 2026-11-27：早档搜集新增 13 条（X 13 条：@swordBluesy What If 五步、@Muss7749 短剧投流素材批量、@AIExplorerTim 9 个开源仓库导航、@KOF97AI 转发 MAGI-2 双向工作流、@bkdgiffug 短剧 3 项目导航、@ReignSwords ffmpeg-skill、@FootballAnt247 晚报 11.26/日报 11.25/11.22/11.20、@octopusaia 13 仓库导航、@AzrianoY1 三家对照、@adilinthewild 不露脸 YouTube 4 Skills；13 帖正文与时间戳均经 fxtwitter API 核验，Muss7749/AzrianoY1/adilinthewild 三篇 Article 全文已读，KOF97AI 所链 Article 经 live browser 直读核验（作者 @op7418），4 期日报长图逐张直读核验；浏览器报告多处偏差已按 API 原文/图片纠正：octopusaia 13 仓清单以 API 原文为准（浏览器版 ReaVoice/OpusAudio/Fable 等 9 项在原文未见不采用）；swordBluesy 流程以 API 原文五步为准（"8 句剧本/35 词提示词/9 秒竖屏"原文未见不采用，6500 万为所引频道总量）；Muss7749 五种剪法为高光前置/顺剪/跳剪/悬念截停/冲突对白、4 比例为 9:16/4:5/1:1/16:9（浏览器版 A–E 命名与 3:4 有误）；11.22 与 11.26 两期日报长图内容以图片直读为准（浏览器版各 8 条与图片不符不采用）；adilinthewild 用 Seedance 2.5 非 1.5；去重：@neo_cn 运镜短帖与 @nanyuan0412 MAGI-2 对比 Article 与 11-26 提示词优化库已收条目为同一帖，跨库去重不重复计；GitHub 侧：文档关键词 `awesome video prompts`/`viral video prompts` 与补充关键词 `awesome ai video prompts`/`video prompt collection` 均无新命中（前排已入库，其余 ≤16★ 未过 star>20 线）；老 26 项 star 经 GitHub API 全量刷新（0 回落：songguoxs 600→601、loopforge0 19→22、BeatAPI 216→224、BFL 137→139、ZeroLu 2842→2882、YouMind 2219→2258、LearnPrompt 2528→2658、showheyohtaki 2055→2529、lemo-opuscar 15722→21586、awesome-opus5-5-videos 15149→16590、PDoomVideo 2926→3007、opus-video-prompts 1093→1244、video-shotcraft 19197→22785、lanshu 454→469、seedance-skill 109→112、generative-media-skills 243→254、vibe-creating-skill 163→168、explainer-video-skills 102→155、Seedance-ShotDesign 136→138、inference-sh 808→827、geekjourneyx 90→92、hyperframes 84164→90881、OpenMontage 46→71、awesome-short-drama-skills 2310→2896；adamperlis 45、ilkerzg 138 不变），共 67 个项目
 - 2026-11-14：晚档搜集新增 22 条（X 22 条：主窗口 18 条 @KOF97AI Fable 5.2 动漫大场面/Video-as-Code、@ChinaAIDaily AI 日报晚版、@aimusheng Phraze、@Vale_Eon HyperFrames、@daodao166888 卡通商业故事、@charlieonai OpenMontage、@alacheng 付鹏访谈、@NFT_Chen 曾妍、@FitchReed313703 黄果短剧五步法、@ErikAngeles18 短剧 Skill 清单、@fu1234567890qq 300 万爆款全流程、@FootballAnt247 四模型对照/最后一镜留钩子、@neo_cn 新模型三组对照/衣服穿帮、@TanLuAI 白模预演、@realJustinSoong PixelDojo Ray3.2；补翻 11-11 3 条 @KOF97AI 锁脸、@YunxiOP 短剧榜、@alexmashrabov Higgsfield 13.5 亿美元；补翻 11-08 1 条 @Lucy_love_AI 10 个 Codex 视频 Skills；22 帖正文与时间戳均经 fxtwitter API 核验，fu1234567890qq/TanLuAI/FitchReed313703 三篇 Article 与 daodao166888 提示词串全文已读；ChinaAIDaily 配图直读核验为封面卡片不含细则，可灵 198.02 亿增资/180 亿美元估值与 GLM-5.3 编程+50%/Flash MIT 两条经公开报道交叉核验；去重/排除：@aimusheng Magai 与 @RobbXiao Excel Formula Bot 为非视频搞钱案例不收，@alacheng 访谈"250 元/分钟"说法未在原帖正文核验到不采用；GitHub 侧本档不做（一天一次、早档已做）；另核验 OpenMontage 46★ AGPL-3.0、awesome-short-drama-skills 2310★ CC0-1.0、hyperframes 84164★ Apache-2.0，均 2026-11-14 GitHub API 实测），共 54 个项目
